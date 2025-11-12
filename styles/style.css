@@ -9,6 +9,10 @@ html {
 }
 
 .page {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -48,4 +52,148 @@ ol {
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
+}
+
+/* --------------------- Первый пункт: Основной лэйаут --------------------- */
+
+.content{
+  display:grid;
+  width: 1140px;
+  gap: 30px;
+  
+  grid-template-columns: 711px 399px;
+  grid-template-rows: 1fr;
+  
+  grid-template-areas: 
+    "result content__details";
+  align-items: end;
+}
+
+.result{
+  grid-area: result;
+  min-width: 711px;
+
+}
+
+.content__details{
+  grid-area: content__details;
+  width: 100%;
+
+}
+
+
+.search-form{
+  width:100%;
+
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap:40px;
+
+}
+/*
+.search-form__fieldset{
+  flex:1;
+}
+*/
+
+.content__list-container{
+  height: 298px;
+  overflow-y:scroll;
+}
+
+.title{
+  margin-bottom:26px;
+}
+
+/* --------------------- Второй пункт: Подгон под размеры --------------------- */
+
+.result__video-container {
+  width: 711px;
+  height: 386px;
+  margin-bottom:16px;
+  overflow: hidden;
+}
+
+.result__video {
+  width:100%;
+  height:100%;
+  object-fit: fill;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap:30px;
+}
+
+.content__video-card{
+  display:flex;
+  align-items: flex-start;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+.content__video-card-description-container {
+  flex-grow:1;
+  width: 196px;
+  height: 103px;
+}
+
+/* --------------------- Второй пункт: Cтили и шрифты --------------------- */
+
+.search-form__fieldset-title{
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.title{
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 94%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.content__accent{
+  color: #545050;
+}
+
+.content__card-link{
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.content__video-card-title{
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 30px;
+  text-transform: uppercase;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content__video-card-description{
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18.3px; /* наиболее подходящий размер, схожий с макетом*/
+
+  width: 196px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
