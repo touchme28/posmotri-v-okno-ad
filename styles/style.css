@@ -54,6 +54,16 @@ ol {
   background-color: #D9D9D9;
 }
 
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* --------------------- Первый пункт: Основной лэйаут --------------------- */
 
 .content{
@@ -196,4 +206,74 @@ ol {
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* --------------------- Третий пункт: Стилизация форм --------------------- */
+
+.search-form__checkbox-list {
+  display:flex;
+  gap:15px;
+  align-items: center;
+}
+
+.search-form__fieldset {
+  border:none;
+}
+
+.search-form__label {
+  display:flex;
+  width: fit-content;
+}
+
+.search-form__textfield{
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+  border-style: solid;
+  border-width: 1px;
+  border-left: none;
+  border-right: none;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: transparent;
+  appearance: none;
+}
+
+.search-form__label:has(.search-form__textfield:focus-visible){
+  outline: 1px solid #FFFFFF;
+}
+
+.search-form__pseudo-checkbox{
+  display: inline-block;
+  border: 1px solid #FFFFFF;
+  width:19px;
+  height: 19px;
+  position: relative;
+  cursor:pointer;
+  margin-right:5px;
+}
+
+.search-form__pseudo-checkbox::after{
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  width:15px;
+  height: 15px;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  display: block;
+}
+
+.search-form__label:has(.search-form__checkbox:focus-visible) {
+  outline: 1px solid #FFFFFF;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+  cursor:pointer;
 }
